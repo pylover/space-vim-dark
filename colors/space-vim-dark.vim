@@ -87,7 +87,7 @@ let s:colors = {
       \ }
 
 function! s:hi(item, fg, bg, cterm, gui)
-  let l:fg = empty(a:fg) ? '' : printf('ctermfg=%d guifg=%s', a:fg, get(s:colors, a:fg, s:color256[a:fg]))
+  let l:fg = empty(a:fg) ? 'ctermfg=none' : printf('ctermfg=%d guifg=%s', a:fg, get(s:colors, a:fg, s:color256[a:fg]))
   let l:bg = empty(a:bg) ? '' : printf('ctermbg=%d guibg=%s', a:bg, get(s:colors, a:bg, s:color256[a:bg]))
   let l:style = printf('cterm=%s gui=%s', a:cterm, a:gui)
   execute 'hi '.a:item.' '.l:fg.' '.l:bg.' '.l:style
